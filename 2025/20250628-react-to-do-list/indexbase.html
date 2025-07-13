@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/1362334b71.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Libre+Franklin:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="base.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="text-center text-light my-4">
+        <h1 class="mb-4">Todo List App</h1>
+        <form class="search">
+          <input
+            class="form-control m-auto"
+            type="text"
+            name="search"
+            placeholder="Buscar tarea"
+          />
+        </form>
+      </header>
+
+      <ul class="list-group todos mx-auto text-light delete">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          <span>Ir a la Universidad</span>
+          <i class="far fa-trash-alt delete"></i>
+        </li>
+
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          <span>Lavar la ropa</span>
+          <i class="far fa-trash-alt delete"></i>
+        </li>
+
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          <span>Comida para mi mascota</span>
+          <i class="far fa-trash-alt delete"></i>
+        </li>
+      </ul>
+
+      <form class="add text-center my-4">
+        <label class="text-light">Agregar nueva tarea...</label>
+        <input class="form-control m-auto" type="text" name="add" />
+        <br />
+        <div class="text-center">
+          <button type="submit" class="btn btn-light">Guardar</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
