@@ -1,0 +1,53 @@
+% Comandos preámbulo
+\usepackage{graphicx}
+
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    left=20mm,
+    right=20mm,
+    top=20mm,
+    bottom=20mm,
+}
+
+\usepackage{setspace}
+\setstretch{2}
+
+\newcommand{\universidad}{\bfseries \MakeUppercase{Pontificia Universidad Católica del Perú}}
+\newcommand{\facultad}{\bfseries \MakeUppercase{Facultad de Ciencias e Ingeniería}}
+\newcommand{\especialidad}{\bfseries \MakeUppercase{Especialidad de Ingeniería Informática}}
+\newcommand{\alumno}[1]{\textbf{Estudiante:}\\ #1\\[0.3cm]}
+\newcommand{\supervisor}[1]{\textbf{Docente:}\\ #1\\[0.3cm]}
+\newcommand{\curso}[2]{\textbf{Curso:}\\ #1 \textbf{(#2)}\\[0.3cm]}
+\newcommand{\fechaPresentacion}[1]{Lima, #1\\[0.3cm]}
+
+\newcommand{\alumnoGrupo}[2]{#1 (#2)\\}
+
+\usepackage{fancyhdr}
+
+\usepackage{tocloft}
+
+\renewcommand{\cftchappresnum}{Capítulo~}
+\renewcommand{\cftchapaftersnum}{.-}
+\setlength{\cftchapnumwidth}{3cm}
+
+\usepackage{fancyhdr}
+\fancyhead[L]{\universidad}
+\fancyhead[R]{}
+\fancyfoot[RO,LE]{\thepage}
+\fancyfoot[C]{}
+
+\usepackage{appendix}
+
+\usepackage{endnotes}
+\let\footnote=\endnote
+\renewcommand{\enoteheading}{}
+\renewcommand{\enotesize}{\large}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+}

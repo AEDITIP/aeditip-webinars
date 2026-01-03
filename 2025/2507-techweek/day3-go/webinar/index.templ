@@ -1,0 +1,99 @@
+package main
+
+templ Indice(tareas []Tarea) {
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title>App de Tareas en Go</title>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+			<style>
+				body {
+					font-family: system-ui, -apple-system, sans-serif;
+					max-width: 600px;
+					margin: 50px auto;
+					padding: 0 20px;
+				}
+				input[type="text"] {
+					padding: 8px;
+					font-size: 16px;
+					border: 1px solid #ddd;
+					border-radius: 4px;
+					width: 70%;
+				}
+				button {
+					padding: 8px 16px;
+					font-size: 16px;
+					background: #007bff;
+					color: white;
+					border: none;
+					border-radius: 4px;
+					cursor: pointer;
+				}
+				button:hover {
+					background: #0056b3;
+				}
+				ul {
+					list-style: none;
+					padding: 0;
+				}
+				li {
+					padding: 12px;
+					margin: 8px 0;
+					background: #f8f9fa;
+					border-radius: 4px;
+					display: flex;
+					align-items: center;
+					gap: 10px;
+				}
+				li.completada span {
+					text-decoration: line-through;
+					color: #6c757d;
+				}
+				.btn-eliminar {
+					margin-left: auto;
+					background: #dc3545;
+					padding: 4px 12px;
+					font-size: 14px;
+				}
+				.btn-eliminar:hover {
+					background: #c82333;
+				}
+			</style>
+		</head>
+		<body>
+			<h1>App de Tareas en Go</h1>
+			
+			<form hx-post="/tareas" hx-target="#lista-tareas" hx-swap="beforeend">
+				<input type="text" name="titulo" placeholder="¿Qué necesitas hacer?" required/>
+				<button type="submit">Agregar</button>
+			</form>
+
+			<ul id="lista-tareas">
+				for _, tarea := range tareas {
+					@ItemTarea(tarea)
+				}
+			</ul>
+		</body>
+	</html>
+}
+
+templ ItemTarea(tarea Tarea) {
+	<li class={ templ.KV("completada", tarea.Completada) }>
+		<input 
+			type="checkbox" 
+			if tarea.Completada { checked }
+			hx-post={ "/tareas/" + tarea.ID + "/alternar" }
+			hx-target="closest li"
+			hx-swap="outerHTML"
+		/>
+		<span>{ tarea.Titulo }</span>
+		<button 
+			class="btn-eliminar"
+			hx-delete={ "/tareas/" + tarea.ID }
+			hx-target="closest li"
+			hx-swap="outerHTML swap:1s"
+		>Eliminar</button>
+	</li>
+}

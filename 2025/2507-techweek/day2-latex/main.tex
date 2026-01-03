@@ -1,0 +1,35 @@
+\documentclass[12pt]{report}
+
+\usepackage[spanish]{babel}
+\usepackage{comandos}
+
+\begin{document}
+\pagestyle{fancy}
+\thispagestyle{empty}
+
+%\chapter{Introducción}
+%El \textbf{presente} documento \textit{informará} el avance de la \texttt{investigación}....
+
+%\begin{flushleft}
+%    Estos resultados responden a la problemática planteada con un ahorro de presupuesto del 20\% (equivalente a \$5000).
+%\end{flushleft}
+
+\input{utils/caratula}
+
+\clearpage
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+
+\input{capitulos/cap1/cap1}
+\input{capitulos/cap2/cap2}
+    
+\begin{appendices}
+\chapter{Notas de página}
+\theendnotes
+
+\end{appendices}
+
+\end{document}
